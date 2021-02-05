@@ -2,7 +2,7 @@ import { Switch, Route, Link, Redirect } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import Home from "./pages/Home.jsx";
 import { useEffect, useState } from "react";
-import PostPage from "./pages/PostPage";
+import PostPage from "./pages/EditPost";
 import NewPost from "./pages/NewPost";
 
 function Routes() {
