@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import Routes from "./Routes";
 import "./index.css";
 
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
-  <Router>
+  <HashRouter basename="/">
     <Routes />
-  </Router>,
+  </HashRouter>,
   document.getElementById("root")
 );
 

@@ -1,4 +1,4 @@
-import { Switch, Route, Link, Redirect } from "react-router-dom";
+import { Route, HashRouter, Switch, Redirect } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import Home from "./pages/Home.jsx";
 import { useEffect, useState } from "react";
@@ -33,27 +33,28 @@ function Routes() {
               className="Nav"
             />
             <Switch>
-              <Route exact path={"/"}>
-                <Redirect to={process.env.PUBLIC_URL + "/posts"} />
+              {" "}
+              <Route exact path="/">
+                <Redirect to="/posts" />
               </Route>
-              <Route exact path={process.env.PUBLIC_URL + "/posts"}>
+              <Route exact path="/posts">
                 {!userAuth ? <LoginPage setUserAuth={setUserAuth} /> : <Home />}
               </Route>
-              <Route exact path={process.env.PUBLIC_URL + "/posts/:id"}>
+              <Route exact path="/posts/:id">
                 {!userAuth ? (
                   <LoginPage setUserAuth={setUserAuth} />
                 ) : (
                   <PostPage />
                 )}
               </Route>
-              <Route exact path={process.env.PUBLIC_URL + "/newpost"}>
+              <Route path="/newpost">
                 {!userAuth ? (
                   <LoginPage setUserAuth={setUserAuth} />
                 ) : (
                   <NewPost />
                 )}
               </Route>
-              <Route path={process.env.PUBLIC_URL}>
+              <Route path="/">
                 <p>404</p>
               </Route>
             </Switch>
