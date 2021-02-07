@@ -1,6 +1,8 @@
 # Blog CMS for [Blog Project](https://www.theodinproject.com/lessons/blog-api)
 
-This repo is live [here](http://dovimaj.github.io/blog-cms)
+This repo is live [here](http://dovimaj.github.io/blog-cms).
+
+Visit the REST API repo for this project [here](https://github.com/DoviMaj/blog-api).
 
 # Getting Started with Create React App
 
