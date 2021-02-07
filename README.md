@@ -1,3 +1,7 @@
+# Blog CMS for [Blog Project](https://www.theodinproject.com/lessons/blog-api)
+
+This repo is live [here](http://dovimaj.github.io/blog-cms)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
