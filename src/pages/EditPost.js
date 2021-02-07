@@ -82,7 +82,7 @@ const EditPost = () => {
       if (req.status !== 200) {
         return;
       }
-      // DELETE ALL POST COMMENTS []
+      await deleteAllComments();
       history.push("/posts");
     } catch (err) {
       console.error(err);
@@ -109,6 +109,30 @@ const EditPost = () => {
       const newComments = comments.filter(
         (comment) => comment._id !== commentId
       );
+      setComments(newComments);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const deleteAllComments = async () => {
+    const token = localStorage.getItem("token");
+    const bearer = `Bearer ${token}`;
+    try {
+      const req = await fetch(
+        `https://dovimaj-blog-api.herokuapp.com/api/posts/${id}/comments`,
+        {
+          method: "delete",
+          headers: {
+            Authorization: bearer,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (req.status !== 200) {
+        return;
+      }
+      const newComments = {};
       setComments(newComments);
     } catch (err) {
       console.error(err);
@@ -160,7 +184,7 @@ const EditPost = () => {
       {comments &&
         comments.map((comment) => {
           return (
-            <div key={comment._id} id={comment._id}>
+            <div key={comment._id}>
               <p>{comment.text}</p>
               <button onClick={() => deleteComment(comment._id)}>Delete</button>
             </div>
