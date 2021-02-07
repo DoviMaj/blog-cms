@@ -33,27 +33,27 @@ function Routes() {
               className="Nav"
             />
             <Switch>
-              <Route exact path="/">
-                <Redirect to="/posts" />
+              <Route exact path={"/"}>
+                <Redirect to={process.env.PUBLIC_URL + "/posts"} />
               </Route>
-              <Route exact path="/posts">
+              <Route exact path={process.env.PUBLIC_URL + "/posts"}>
                 {!userAuth ? <LoginPage setUserAuth={setUserAuth} /> : <Home />}
               </Route>
-              <Route exact path="/posts/:id">
+              <Route exact path={process.env.PUBLIC_URL + "/posts/:id"}>
                 {!userAuth ? (
                   <LoginPage setUserAuth={setUserAuth} />
                 ) : (
                   <PostPage />
                 )}
               </Route>
-              <Route exact path="/newpost">
+              <Route exact path={process.env.PUBLIC_URL + "/newpost"}>
                 {!userAuth ? (
                   <LoginPage setUserAuth={setUserAuth} />
                 ) : (
                   <NewPost />
                 )}
               </Route>
-              <Route path="/">
+              <Route path={process.env.PUBLIC_URL}>
                 <p>404</p>
               </Route>
             </Switch>

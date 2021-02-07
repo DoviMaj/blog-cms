@@ -17,10 +17,10 @@ const theNav = ({ userAuth, setUserAuth }) => {
         <h1>Blog CMS</h1>
       </Navbar.Brand>
       <Nav className="mr-auto">
-        <LinkContainer to="/">
+        <LinkContainer to={process.env.PUBLIC_URL}>
           <Nav.Link>Home</Nav.Link>
         </LinkContainer>
-        <LinkContainer to="/newpost">
+        <LinkContainer to={process.env.PUBLIC_URL + "/newpost"}>
           <Nav.Link>New Post</Nav.Link>
         </LinkContainer>
       </Nav>
