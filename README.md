@@ -4,6 +4,8 @@ This repo is live [here](http://dovimaj.github.io/blog-cms).
 
 Visit the REST API repo for this project [here](https://github.com/DoviMaj/blog-api).
 
+Visit the Blog Client repo for this project [here](https://github.com/DoviMaj/blog-client).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
