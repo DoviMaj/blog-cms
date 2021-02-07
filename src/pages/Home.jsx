@@ -19,12 +19,13 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <p>Blog Posts</p>
-      {posts &&
-        posts.map((post) => {
-          return <Post key={post._id} post={post} />;
-        })}
+    <div className="postList layout">
+      <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+        {posts &&
+          posts.map((post) => {
+            return <Post key={post._id} post={post} />;
+          })}
+      </div>
     </div>
   );
 };

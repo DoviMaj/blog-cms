@@ -1,6 +1,8 @@
 import { useState, React } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const NewPost = () => {
   const [successMsg, setSuccessMsg] = useState(false);
@@ -32,36 +34,42 @@ const NewPost = () => {
   };
   return (
     <div>
-      <form>
-        <label htmlFor="title">Title:</label>
-        <input
-          ref={register({ required: "required field" })}
-          name="title"
-        ></input>
-        {errors.title && <p>Required field</p>}
+      <Form>
+        <Form.Group>
+          <Form.Label htmlFor="title">Title:</Form.Label>
+          <Form.Control
+            ref={register({ required: "required field" })}
+            name="title"
+          ></Form.Control>
+          {errors.title && <Form.Text>Required field</Form.Text>}
+        </Form.Group>
 
-        <label htmlFor="text">Text:</label>
-        <input
-          name="text"
-          ref={register({ required: "required field" })}
-        ></input>
-        {errors.text && <p>Required field</p>}
+        <Form.Group>
+          <Form.Label htmlFor="text">Text:</Form.Label>
+          <Form.Control
+            as="textarea"
+            name="text"
+            ref={register({ required: "required field" })}
+          ></Form.Control>
+          {errors.text && <Form.Text>Required field</Form.Text>}
+        </Form.Group>
 
-        <label htmlFor="author_name">Author:</label>
-        <input
-          name="author_name"
-          ref={register({ required: "required field" })}
-        ></input>
-        {errors.author_name && <p>Required field</p>}
-
-        <button
+        <Form.Group>
+          <Form.Label htmlFor="author_name">Author:</Form.Label>
+          <Form.Control
+            name="author_name"
+            ref={register({ required: "required field" })}
+          ></Form.Control>
+          {errors.author_name && <Form.Text>Required field</Form.Text>}
+        </Form.Group>
+        <Button
           type="submit"
           onClick={((e) => e.preventDefault(), handleSubmit(submitForm))}
         >
           Update
-        </button>
-        {successMsg && <p>Submited successfully!</p>}
-      </form>
+        </Button>
+        {successMsg && <Form.Text>Submited successfully!</Form.Text>}
+      </Form>
     </div>
   );
 };

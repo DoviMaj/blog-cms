@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const EditPost = () => {
   const [post, setPost] = useState();
@@ -140,57 +142,78 @@ const EditPost = () => {
   };
 
   return (
-    <>
+    <div className="layout">
       {post ? (
         <div>
-          <form>
-            <label htmlFor="title">Title:</label>
-            <input
-              ref={register({ required: "required field" })}
-              name="title"
-              defaultValue={post.title}
-            ></input>
-            {errors.title && <p>Required field</p>}
+          <Form>
+            <Form.Group>
+              <Form.Label htmlFor="title">Title:</Form.Label>
+              <Form.Control
+                ref={register({ required: "required field" })}
+                name="title"
+                defaultValue={post.title}
+              ></Form.Control>
+              {errors.title && <Form.Text>Required field</Form.Text>}
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="text">Post:</Form.Label>
+              <Form.Control
+                as="textarea"
+                name="text"
+                ref={register({ required: "required field" })}
+                defaultValue={post.text}
+              ></Form.Control>
+              {errors.text && <Form.Text>Required field</Form.Text>}
+            </Form.Group>
 
-            <label htmlFor="text">Text:</label>
-            <textarea
-              name="text"
-              ref={register({ required: "required field" })}
-              defaultValue={post.text}
-            ></textarea>
-            {errors.text && <p>Required field</p>}
+            <Form.Group>
+              <Form.Label htmlFor="author_name">Author:</Form.Label>
+              <Form.Control
+                name="author_name"
+                ref={register({ required: "required field" })}
+                defaultValue={post.author_name}
+              ></Form.Control>
+              {errors.author_name && <Form.Text>Required field</Form.Text>}
+            </Form.Group>
+            {successMsg && <Form.Text>Updated successfully!</Form.Text>}
 
-            <label htmlFor="author_name">Author:</label>
-            <input
-              name="author_name"
-              ref={register({ required: "required field" })}
-              defaultValue={post.author_name}
-            ></input>
-            {errors.author_name && <p>Required field</p>}
-
-            <button
-              type="submit"
-              onClick={((e) => e.preventDefault(), handleSubmit(submitForm))}
-            >
-              Update
-            </button>
-            {successMsg && <p>Updated successfully!</p>}
-          </form>
-          <button onClick={deletePost}>Delete post</button>
+            <Form.Group>
+              {" "}
+              <Button
+                type="submit"
+                onClick={((e) => e.preventDefault(), handleSubmit(submitForm))}
+              >
+                Update
+              </Button>
+              <Button
+                style={{ margin: "20px" }}
+                variant="danger"
+                onClick={deletePost}
+              >
+                Delete post
+              </Button>
+            </Form.Group>
+          </Form>
         </div>
       ) : (
         <p>Loading...</p>
       )}
+      {comments && <p>Comments:</p>}
       {comments &&
         comments.map((comment) => {
           return (
             <div key={comment._id}>
               <p>{comment.text}</p>
-              <button onClick={() => deleteComment(comment._id)}>Delete</button>
+              <Button
+                variant="danger"
+                onClick={() => deleteComment(comment._id)}
+              >
+                Delete
+              </Button>
             </div>
           );
         })}
-    </>
+    </div>
   );
 };
 
