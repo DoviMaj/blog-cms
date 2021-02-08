@@ -2,6 +2,8 @@
 
 This repo is live [here](http://dovimaj.github.io/blog-cms).
 
+![cms.gif](cms.gif)
+
 Visit the REST API repo for this project [here](https://github.com/DoviMaj/blog-api).
 
 Visit the Blog Client repo for this project [here](https://github.com/DoviMaj/blog-client).
