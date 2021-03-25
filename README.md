@@ -1,4 +1,4 @@
-# Blog CMS for [Blog Project](https://www.theodinproject.com/lessons/blog-api)
+# Blog CMS for [Blog Project](https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs/lessons/blog-api)
 
 This repo is live [here](http://dovimaj.github.io/blog-cms).
 
